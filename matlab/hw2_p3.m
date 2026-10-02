@@ -33,10 +33,10 @@ for i = 1:length(F)
     fprintf('eigenvalues: %s\n', mat2str(ev.', 4));
 
     if all(re < -tol)
-        fprintf('  -> asymptotically stable at the origin\n\n');
+        fprintf('-> asymptotically stable at the origin\n\n');
     elseif any(re > tol)
-        fprintf('  -> unstable at the origin\n\n');
+        fprintf('-> unstable at the origin\n\n');
     else
-        fprintf('  -> linearization is inconclusive\n\n');
+        fprintf('-> linearization is inconclusive\n\n');
     end
 end
