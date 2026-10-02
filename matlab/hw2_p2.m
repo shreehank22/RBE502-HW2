@@ -6,11 +6,11 @@ clear; clc; syms x1 x2 real; % defining the variables
 x = [x1; x2]; % state vector
 tol = 1e-9;
 
-f1 = [x1 - x1^3 + x2; 3*x1 - x2];
+f1 = [x1-x1^3+x2;3*x1-x2];
 
-f2 = [(x1-2)*(4 + x1 - 2*x2); x2*(x1 - x2)];
+f2 = [(x1-2)*(4+x1-2*x2); x2*(x1-x2)];
 
-f3 = [x2*(3 - x1 - 2*x2); x1*(2 - x1 - x2)];
+f3 = [x2*(3-x1-2*x2); x1*(2-x1-x2)];
 
 F = {f1,f2,f3}; % systems 1-3 are polynomial so solve() works fine
 
@@ -24,8 +24,8 @@ for i = 1:length(F)
     for k = 1:size(xe,1)
         A = double(subs(J, x, xe(k,:).')); % Jacobian at this equilibrium
         ev = eig(A);
-        fprintf('  xe = (%g, %g), A = %s\n', xe(k,1), xe(k,2), mat2str(A,4));
-        fprintf('  eig(A) = %s -> %s\n', mat2str(ev.',4), classify_eq(ev, tol));
+        fprintf('xe = (%g, %g), A = %s\n', xe(k,1), xe(k,2), mat2str(A,4));
+        fprintf('eig(A) = %s -> %s\n', mat2str(ev.',4), classify_eq(ev, tol));
     end
 end
 
@@ -51,8 +51,8 @@ for k = 1:length(roots_g)
     res = norm(double(subs(f4, x, [r; r]))); % should be ~0
     A = double(subs(J4, x, [r; r]));
     ev = eig(A);
-    fprintf('  xe = (%.4f, %.4f), residual = %.1e, A = %s\n', r, r, res, mat2str(A,4));
-    fprintf('  eig(A) = %s -> %s\n', mat2str(ev.',4), classify_eq(ev, tol));
+    fprintf('xe = (%.4f, %.4f), residual = %.1e, A = %s\n', r, r, res, mat2str(A,4));
+    fprintf('eig(A) = %s -> %s\n', mat2str(ev.',4), classify_eq(ev, tol));
 end
 
 
