@@ -34,8 +34,8 @@ for i = 1:2
 
     % 3) gain by matching coefficients of the characteristic polynomial
     Acl = A - B*[k1 k2];
-    char_cl  = expand(det(s*eye(2) - Acl));
-    pd       = real(poly(p)); % [1 a1 a0] of the desired polynomial
+    char_cl = expand(det(s*eye(2) - Acl));
+    pd = real(poly(p)); % [1 a1 a0] of the desired polynomial
     char_des = pd(1)*s^2 + pd(2)*s + pd(3);
     eqs = coeffs(char_cl - char_des, s); % each coefficient has to vanish
     sol = solve(eqs, [k1 k2]);
