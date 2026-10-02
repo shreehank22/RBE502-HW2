@@ -1,0 +1,25 @@
+\section*{Problem 1}
+
+For each system I linearized at the origin, $A=\partial f/\partial x\big|_{x=0}$, and looked at the eigenvalues. If every $\mathrm{Re}(\lambda)<0$ the origin is asymptotically stable. The $x_1x_2$ and $x_2^3$ terms drop out of $A$ since their slope is zero at $0$, and in systems 2 and 3 the factors $(1-x_1^2-x_2^2)$ and $(1-x_1^2)$ just evaluate to $1$ after the product rule.
+
+\begin{center}
+\begin{tabular}{clll}
+\toprule
+ & $A$ & char.\ polynomial & eigenvalues\\
+\midrule
+1 & $\bmat{-1&0\\0&-1}$ & $(\lambda+1)^2$ & $-1,\,-1$\\[6pt]
+2 & $\bmat{-1&-1\\1&-1}$ & $\lambda^2+2\lambda+2$ & $-1\pm j$\\[6pt]
+3 & $\bmat{0&1\\-1&-1}$ & $\lambda^2+\lambda+1$ & $-\tfrac12\pm j\tfrac{\sqrt3}{2}$\\[6pt]
+4 & $\bmat{-1&-1\\2&0}$ & $\lambda^2+\lambda+2$ & $-\tfrac12\pm j\tfrac{\sqrt7}{2}$\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+All real parts are negative, so the origin is asymptotically stable for all four systems.
+
+\begin{lstlisting}
+J = jacobian(f, x);
+J_at_origin = subs(J, x, [0; 0]);
+A{i} = double(J_at_origin);
+eigenvalues = eig(A{i});
+\end{lstlisting}

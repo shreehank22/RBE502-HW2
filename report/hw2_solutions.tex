@@ -1,0 +1,36 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,graphicx,booktabs,listings,xcolor}
+\setlength{\parindent}{0pt}\setlength{\parskip}{5pt}
+
+\lstset{
+  language=Matlab,
+  basicstyle=\ttfamily\footnotesize,
+  commentstyle=\color{gray},
+  keywordstyle=\color{blue!60!black},
+  frame=single,
+  framerule=0.3pt,
+  breaklines=true,
+  columns=fullflexible,
+  aboveskip=6pt, belowskip=6pt
+}
+
+\newcommand{\bmat}[1]{\begin{bmatrix}#1\end{bmatrix}}
+
+\title{RBE 502 -- Homework 2}
+\author{Shreehan}
+\date{September 2026}
+
+\begin{document}
+\maketitle
+
+All code is in the \texttt{matlab/} folder of the repo (one file per problem, \texttt{hw2\_p1.m} to \texttt{hw2\_p6.m}). The snippets below are only the key parts.
+
+\input{sections/p1}
+\input{sections/p2}
+\input{sections/p3}
+\input{sections/p4}
+\input{sections/p5}
+\input{sections/p6}
+
+\end{document}

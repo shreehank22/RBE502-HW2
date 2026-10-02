@@ -1,0 +1,17 @@
+\section*{Problem 3}
+
+Same approach as Problem 1, just with three states.
+
+\begin{enumerate}
+\item $A=\mathrm{diag}(-1,-1,1)$. The $-x_1^2$ in $\dot x_3$ has zero slope at $0$. One eigenvalue is $+1$, so the origin is \textbf{unstable}.
+\item $A=\bmat{-1&0&0\\-1&-1&-1\\0&1&0}$. It is block lower triangular, so $\det(\lambda I-A)=(\lambda+1)(\lambda^2+\lambda+1)$ and $\lambda=-1,\,-\tfrac12\pm j\tfrac{\sqrt3}{2}$. \textbf{Asymptotically stable.}
+\item $A=\mathrm{diag}(-2,-1,-1)$. \textbf{Asymptotically stable.}
+\end{enumerate}
+
+\begin{lstlisting}
+A  = double(subs(jacobian(f, x), x, [0; 0; 0]));
+re = real(eig(A));
+if all(re < -tol),     disp('asymptotically stable');
+elseif any(re > tol),  disp('unstable');
+else,                  disp('inconclusive'); end
+\end{lstlisting}
