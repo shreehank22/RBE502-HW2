@@ -1,0 +1,11 @@
+# LaTeX build files
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+# MATLAB
+*.asv
+# OS / editor
+.DS_Store
+.vscode/
